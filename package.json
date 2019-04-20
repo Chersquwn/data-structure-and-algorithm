@@ -1,0 +1,41 @@
+{
+  "name": "data-structure-and-algorithm",
+  "version": "1.0.0",
+  "description": "Data Structure and algorithm ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chersquwn/data-structure-and-algorithm.git"
+  },
+  "keywords": [
+    "data-structure",
+    "algorithm"
+  ],
+  "author": "Chersquwn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chersquwn/data-structure-and-algorithm/issues"
+  },
+  "homepage": "https://github.com/Chersquwn/data-structure-and-algorithm#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@types/jest": "^24.0.11",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "eslint": "^5.16.0",
+    "eslint-config-chersquwn": "^1.2.2",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.4.3"
+  }
+}

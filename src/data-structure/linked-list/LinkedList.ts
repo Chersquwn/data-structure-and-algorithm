@@ -13,13 +13,9 @@ export default class LinkedList<T> {
   private tail: LinkedListNode<T>
   private len: number = 0
 
-  constructor() {
+  public constructor() {
     this.head = null
     this.tail = null
-  }
-
-  private isOutOfBounds(index) {
-    return index < 0 || index > this.len
   }
 
   /**
@@ -29,7 +25,7 @@ export default class LinkedList<T> {
    * @type {number}
    * @memberof LinkedList
    */
-  get length() {
+  public get length(): number {
     return this.len
   }
 
@@ -38,10 +34,10 @@ export default class LinkedList<T> {
    *
    * @author Chersquwn
    * @param {number} index
-   * @returns
+   * @returns {LinkedListNode<T>}
    * @memberof LinkedList
    */
-  get(index: number) {
+  public get(index: number): LinkedListNode<T> {
     if (this.isOutOfBounds(index)) return null
 
     let i = 0
@@ -59,10 +55,10 @@ export default class LinkedList<T> {
    *
    * @author Chersquwn
    * @param {T} value
-   * @returns
+   * @returns {number}
    * @memberof LinkedList
    */
-  find(value: T) {
+  public find(value: T): number {
     let i = 0
     let current = this.head
 
@@ -80,10 +76,10 @@ export default class LinkedList<T> {
    *
    * @author Chersquwn
    * @param {T} value
-   * @returns
+   * @returns {LinkedList<T>}
    * @memberof LinkedList
    */
-  append(value: T) {
+  public append(value: T): LinkedList<T> {
     const newNode = new LinkedListNode(value)
 
     if (!this.head) {
@@ -103,10 +99,10 @@ export default class LinkedList<T> {
    *
    * @author Chersquwn
    * @param {T} value
-   * @returns
+   * @returns {LinkedList<T>}
    * @memberof LinkedList
    */
-  prepend(value: T) {
+  public prepend(value: T): LinkedList<T> {
     const newNode = new LinkedListNode(value)
 
     if (!this.head) {
@@ -127,10 +123,10 @@ export default class LinkedList<T> {
    * @author Chersquwn
    * @param {number} index
    * @param {T} value
-   * @returns
+   * @returns {LinkedList<T>}
    * @memberof LinkedList
    */
-  insert(index: number, value: T) {
+  public insert(index: number, value: T): LinkedList<T> {
     if (this.isOutOfBounds(index)) return null
 
     if (index === 0) {
@@ -155,10 +151,10 @@ export default class LinkedList<T> {
    *
    * @author Chersquwn
    * @param {number} index
-   * @returns
+   * @returns {LinkedListNode<T>}
    * @memberof LinkedList
    */
-  removeAt(index: number) {
+  public removeAt(index: number): LinkedListNode<T> {
     if (this.isOutOfBounds(index)) return null
 
     if (index === 0) {
@@ -180,5 +176,48 @@ export default class LinkedList<T> {
     this.len--
 
     return current
+  }
+
+  /**
+   * 根据值移除链表节点
+   *
+   * @author Chersquwn
+   * @param {T} value
+   * @returns {LinkedListNode<T>}
+   * @memberof LinkedList
+   */
+  public remove(value: T): LinkedListNode<T> {
+    let i = 0
+    let current = this.head
+    let previous = null
+
+    while (i++ < this.len) {
+      if (current.value === value) {
+        if (!previous) {
+          this.tail = this.head = null
+        } else {
+          previous.next = current.next
+        }
+
+        this.len--
+
+        return current
+      }
+
+      previous = current
+      current = current.next
+    }
+
+    if (!previous) return null
+
+    previous.next = current.next
+
+    this.len--
+
+    return current
+  }
+
+  private isOutOfBounds(index: number): boolean {
+    return index < 0 || index > this.len
   }
 }
