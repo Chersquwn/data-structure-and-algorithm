@@ -9,9 +9,9 @@ import LinkedListNode from './LinkedListNode'
  * @template T
  */
 export default class LinkedList<T> {
-  private head: LinkedListNode<T>
-  private tail: LinkedListNode<T>
-  private len: number = 0
+  public head: LinkedListNode<T>
+  public tail: LinkedListNode<T>
+  public len: number = 0
 
   public constructor() {
     this.head = null
