@@ -99,7 +99,7 @@ export default class BinarySearchTree<T> {
     return this.toArray().join(',')
   }
 
-  private insertNode(
+  protected insertNode(
     node: BinaryTreeNode<T>,
     newNode: BinaryTreeNode<T>
   ): void {
