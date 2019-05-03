@@ -16,11 +16,7 @@ export default class BinarySearchTree<T> {
    * @memberof BinarySearchTree
    */
   public insert(value: T): BinarySearchTree<T> {
-    if (!this.root) {
-      this.root = new BinaryTreeNode(value)
-    } else {
-      this.insertNode(this.root, new BinaryTreeNode(value))
-    }
+    this.root = this.insertNode(this.root, new BinaryTreeNode(value))
 
     return this
   }
@@ -102,20 +98,16 @@ export default class BinarySearchTree<T> {
   protected insertNode(
     node: BinaryTreeNode<T>,
     newNode: BinaryTreeNode<T>
-  ): void {
+  ): BinaryTreeNode<T> {
+    if (!node) return newNode
+
     if (newNode.value < node.value) {
-      if (!node.left) {
-        node.left = newNode
-      } else {
-        this.insertNode(node.left, newNode)
-      }
+      node.left = this.insertNode(node.left, newNode)
     } else {
-      if (!node.right) {
-        node.right = newNode
-      } else {
-        this.insertNode(node.right, newNode)
-      }
+      node.right = this.insertNode(node.right, newNode)
     }
+
+    return node
   }
 
   private search(node: BinaryTreeNode<T>, value: T): BinaryTreeNode<T> {
